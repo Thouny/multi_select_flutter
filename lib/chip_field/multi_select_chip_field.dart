@@ -518,9 +518,11 @@ class __MultiSelectChipFieldViewState<V>
               widget.state!.didChange(_selectedValues);
             }
           } else {
-            _selectedValues.remove(item.value);
-            if (widget.state != null) {
-              widget.state!.didChange(_selectedValues);
+            if (_selectedValues.length > 1) {
+              _selectedValues.remove(item.value);
+              if (widget.state != null) {
+                widget.state!.didChange(_selectedValues);
+              }
             }
           }
           if (widget.onTap != null) widget.onTap!(_selectedValues);
